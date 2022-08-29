@@ -1,0 +1,7 @@
+query listTodos($completed: Boolean) {
+  listTodos(completed: $completed) {
+    id
+    title
+    completed
+  }
+}
