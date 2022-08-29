@@ -53,7 +53,9 @@ export class AuthorizedApiClient<
   private doesRequireRefresh = ({ config, data }: HttpResponse<any, AuthorizedHttpRequestConfig>) => {
     if (!config.refreshRetries || config.refreshRetries < 2) return false;
 
-    return !!data?.errors?.some((error: any) => error.extensions.code === 'UNAUTHENTICATED');
+    return !!data?.errors?.some(
+      (error: any) => error.message === 'The token is invalid.' && error.extensions.code === 'UNAUTHENTICATED'
+    );
   };
 
   private retry = (config: AuthorizedHttpRequestConfig) => {
