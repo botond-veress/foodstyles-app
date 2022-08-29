@@ -56,7 +56,7 @@ export const TodosPage: React.FC = () => {
   );
 
   return (
-    <Card className="max-w-md">
+    <Card className="flex flex-col max-w-md">
       <Title>Todo List</Title>
 
       <Form {...{ schema, onSubmit }}>
@@ -77,15 +77,17 @@ export const TodosPage: React.FC = () => {
         )}
       </Form>
 
-      {todos.loading ? (
-        <div>Loading...</div>
-      ) : todos.data?.listTodos.length ? (
-        <TodoList items={todos.data.listTodos} {...{ onToggle, onDelete }} />
-      ) : (
-        <EmptyMessage {...{ completed }} />
-      )}
+      <div className="flex-1">
+        {todos.loading ? (
+          <div>Loading...</div>
+        ) : todos.data?.listTodos.length ? (
+          <TodoList items={todos.data.listTodos} {...{ onToggle, onDelete }} />
+        ) : (
+          <EmptyMessage {...{ completed }} />
+        )}
+      </div>
 
-      <footer className="sticky w-full bottom-0 py-4 bg-white md:static md:p-0 md:mt-6">
+      <footer className="sticky w-full bottom-0 pt-4 bg-white md:static md:p-0 md:mt-6">
         <div className="flex justify-between space-x-3 text-sm">
           <div className="flex -mx-3">
             <div className="hidden mx-3 text-secondary-medium font-medium md:block">Show:</div>
