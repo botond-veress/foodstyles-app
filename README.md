@@ -42,3 +42,7 @@ $ API=http://localhost:4000 yarn codegen
 ```bash
 $ yarn dev
 ```
+
+## Demo video
+
+https://user-images.githubusercontent.com/8478920/187102120-05c1b4cf-fa79-406f-89a7-924aab602157.mov
